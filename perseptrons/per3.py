@@ -22,7 +22,7 @@ def oval(canv, X2, Y2, R, N, color = "black"):
     canv.create_oval(int((-X2 / 2 - R) * N), int((-Y2 / 2 - R) * N), int((-X2 / 2 + R) * N), int((- Y2 / 2 + R) * N), width = 2, outline = color)
 
 def mr():
-    return (-1 + numpy.random.random() * 2) / 80
+    return (-1 + numpy.random.random() * 2) / 5
 
 O1 = numpy.array(   [[3/8],
                     [1/2],
@@ -57,6 +57,7 @@ N = 500
 r = 3
 canv = tkinter.Canvas(win, width = N, height = N)
 
+
 Per1[0][0] = 1 + mr()
 Per1[1][0] = -3/4 + mr()
 Per1[2][0] = -1 + mr()
@@ -70,6 +71,7 @@ Per2[3][0] = (1/2)**2 + (5/8)**2 - (1/4)**2 + mr()
 Per3[0][0] = 1 + mr()
 Per3[1][0] = 1 + mr()
 Per3[2][0] = -3/2 + mr()
+
 
 if (Per1[1][0] / 2) ** 2 + (Per1[2][0] / 2) ** 2 - Per1[3][0] > 0:
     R1 = numpy.sqrt((Per1[1][0] / 2) ** 2 + (Per1[2][0] / 2) ** 2 - Per1[3][0])
@@ -97,8 +99,8 @@ while True:
         Per3[0][0] += in1 * t * 0.01
         Per3[1][0] += in2 * t * 0.01
         Per3[2][0] += t * 0.01
-        d1 = nonlin(incircle(x, y, Per1), True)
-        d2 = nonlin(incircle(x, y, Per2), True)
+        d1 = nonlin(100 * incircle(x, y, Per1), True)
+        d2 = nonlin(100 * incircle(x, y, Per2), True)
         coeff = t * d1 * Per3[0][0] * 0.01
 
         Per1[0][0] += x ** 2 * coeff
@@ -117,7 +119,7 @@ while True:
 
     tmp += 1
     print(tmp)
-    if tmp > 200 * len(P):
+    if tmp > 2000 * len(P):
         break
 
 

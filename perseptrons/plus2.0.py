@@ -170,4 +170,4 @@ for i in range(len(F)):
             img[i][j][0] = 240
             img[i][j][1] = 240
             img[i][j][2] = 60
-cv2.imwrite("./pm2.bmp", img)
+cv2.imwrite("./pm2.jpg", img)
