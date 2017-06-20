@@ -27,15 +27,6 @@ def BFS(x, y):
                 if 0 <= nx < len(img) and 0 <= ny < len(img[0]) and img[nx][ny][0] == img[x][y][0] and img[nx][ny][1] == img[x][y][1] and img[nx][ny][2] == img[x][y][2] and not F[nx][ny]:
                     Q.put((nx, ny))
                     F[nx][ny] = 1
-        continue
-        for dx in range(-4, 4 + 1):
-            for dy in  range(-6, 6 + 1):
-                if dx == dy == 0:
-                    continue
-                nx, ny = x + dx, y + dy
-                if 0 <= nx < len(img) and 0 <= ny < len(img[0]) and img[nx][ny][0] == img[x][y][0] and img[nx][ny][1] == img[x][y][1] and img[nx][ny][2] == img[x][y][2] and not F[nx][ny]:
-                    Q.put((nx, ny))
-                    F[nx][ny] = 1
     return ans
 
 img = cv2.imread("./pm2.jpg", cv2.IMREAD_COLOR)
